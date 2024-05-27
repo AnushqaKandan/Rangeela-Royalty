@@ -65,8 +65,18 @@ nav ul {
     list-style: none; 
 }
 
+.center-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
 h1{
-    color: var(--secondary);
+    color:rgb(181, 49, 49);
+    font-family: "Poetsen One", sans-serif;
+    font-size: 7rem;
+    text-shadow: 0 0 10px white;
 }
 
 img[alt='logo'] {
