@@ -1,0 +1,90 @@
+*,
+*::after
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* To remove a scrollbar */
+::-webkit-scrollbar{
+    display: none;
+}
+
+:root {
+    --primary: rgb(248, 165, 179) ;
+    --secondary: white;
+    --alternative: black;
+    --tertiary: rgb(168, 111, 3);
+    --awesome: rgb(232, 37, 37);
+}
+
+@property --top-left {
+    syntax:"<percentage>";
+    inherits: false;
+    initial-value:50%;
+}
+@property --top-right{
+    syntax: "<Percentage>";
+    inherits: false;
+    initial-value:50%;
+}
+@property --bottom-left{
+    syntax: "<percentage>";
+    inherits: false;
+    initial-value:0%;
+}
+@property --bottom-right {
+    syntax: "<percentage>";
+    inherits: false;
+    initial-value:0%;
+}
+
+/*Navbar & footer*/
+:is(.navbar, footer){
+    background-color: var(--tertiary);
+}
+
+/* Navbar */
+:is(.nav-link) {
+    color: var(--secondary); 
+}
+
+
+/* Navbar */
+a { 
+   transition: all .5s;
+
+   &:hover {
+    transform: scale(1.2);
+
+   }
+}
+
+h1{
+    color: var(--secondary);
+}
+
+main { 
+background-image: url('https://anushqakandan.github.io/All-images/Javascript/back2.jpg ');
+    /* Specify background size and repeat behavior */
+    background-size: cover; /* Cover the entire viewport */
+    background-repeat: no-repeat; 
+    height: 100vh;
+    margin-top: 4rem;
+}
+
+@media (max-width: 767px) {
+    main {
+        background-size: contain;
+        height: auto; 
+    }
+}
+
+
+/*Create three rows*/
+:is(body) {
+    grid-template-rows: auto minmax(100%, 100dvh) auto;
+}
+
+
