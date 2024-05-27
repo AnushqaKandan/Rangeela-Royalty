@@ -61,26 +61,41 @@ a {
    }
 }
 
+nav ul {
+    list-style: none; 
+}
+
 h1{
     color: var(--secondary);
 }
 
-main { 
+img[alt='logo'] {
+    width: 3.5rem;
+    aspect-ratio: 1/1; /*maintain the height based on the width*/
+    object-fit: cover;
+    object-position: center;
+    
+}
+
+.backdrop { 
 background-image: url('https://anushqakandan.github.io/All-images/Javascript/back2.jpg ');
     /* Specify background size and repeat behavior */
     background-size: cover; /* Cover the entire viewport */
     background-repeat: no-repeat; 
     height: 100vh;
-    margin-top: 4rem;
 }
 
+
 @media (max-width: 767px) {
-    main {
+    .backdrop {
         background-size: contain;
         height: auto; 
     }
 }
 
+main{
+    margin-top: 5rem;
+}
 
 /*Create three rows*/
 :is(body) {
