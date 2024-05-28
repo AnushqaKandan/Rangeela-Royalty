@@ -17,6 +17,7 @@
     --alternative: black;
     --tertiary: rgb(168, 111, 3);
     --awesome: rgb(232, 37, 37);
+    --pretty:  rgb(125, 17, 30);
 }
 
 @property --top-left {
@@ -73,7 +74,7 @@ nav ul {
 }
 
 h1{
-    color:rgb(181, 49, 49);
+    color:var(--awesome);
     font-family: "Poetsen One", sans-serif;
     font-size: 7rem;
     text-shadow: 0 0 10px white;
@@ -96,12 +97,7 @@ background-image: url('https://anushqakandan.github.io/All-images/Javascript/bac
 }
 
 
-@media (max-width: 767px) {
-    .backdrop {
-        background-size: contain;
-        height: auto; 
-    }
-}
+
 
 main{
     margin-top: 5rem;
@@ -110,6 +106,39 @@ main{
 /*Create three rows*/
 :is(body) {
     grid-template-rows: auto minmax(100%, 100dvh) auto;
+}
+
+/* About */
+.background-image { 
+    background-image: url('https://anushqakandan.github.io/All-images/Javascript/About2.jpg ');
+        /* Specify background size and repeat behavior */
+        background-size: cover; /* Cover the entire viewport */
+        background-repeat: no-repeat; 
+        height: 100vh;
+    }
+
+.cardAbout{
+    width: 1000px;
+    backdrop-filter: blur(5px);
+    border: black 1px solid;
+    background-color: inherit;
+
+
+ }
+/* About text */
+.card-text{
+    color: black;
+    font-size: 1.9rem;
+    font-family: 'Poetsen One', serif;
+    text-align: center;
+} 
+
+.display-2{
+    color: var(--awesome) ;
+    text-align: center;
+    margin-top: 5rem;
+    font-weight: bold;
+
 }
 
 
