@@ -81,7 +81,7 @@ h1{
 }
 
 img[alt='logo'] {
-    width: 3.5rem;
+    width: 4rem;
     aspect-ratio: 1/1; /*maintain the height based on the width*/
     object-fit: cover;
     object-position: center;
@@ -94,6 +94,9 @@ background-image: url('https://anushqakandan.github.io/All-images/Javascript/bac
     background-size: cover; /* Cover the entire viewport */
     background-repeat: no-repeat; 
     height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 
@@ -110,11 +113,12 @@ main{
 
 /* About */
 .background-image { 
-    background-image: url('https://anushqakandan.github.io/All-images/Javascript/About2.jpg ');
-        /* Specify background size and repeat behavior */
-        background-size: cover; /* Cover the entire viewport */
+    background-image: url('https://anushqakandan.github.io/All-images/Javascript/About2.jpg');
+        background-size: cover; 
         background-repeat: no-repeat; 
         height: 100vh;
+     
+    
     }
 
 .cardAbout{
@@ -143,3 +147,56 @@ main{
 }
 
 
+/* Footer */
+
+.bottom {
+    text-align: center;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 4rem;
+    }
+
+    .cardAbout {
+        width: 90%;
+    }
+}
+
+/* Contact Info */
+
+.Contact{
+    background-color: var(--tertiary);
+}
+
+.card-body{
+    text-align: center;
+}
+.Contact-text{
+    font-weight: bold;
+    font-size: 2rem;
+    
+}
+
+.mb-3{
+    width: 30rem;
+    margin-left: 25rem;
+}
+.message{
+    height: 20rem;
+}
+
+@media only screen and (max-width: 767px) {
+    .mb-3 {
+        width: 100%;
+        margin-left: 0; 
+    }
+}
+
+/* Contact Info */
+.last-button {
+    display: flex;
+    justify-content: center;
+    gap: 5rem; 
+}
