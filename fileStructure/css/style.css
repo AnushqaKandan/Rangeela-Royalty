@@ -47,6 +47,7 @@
     background-color: var(--tertiary);
 }
 
+
 /* Navbar */
 :is(.nav-link) {
     color: var(--secondary); 
@@ -90,36 +91,42 @@ img[alt='logo'] {
 }
 
 .backdrop { 
-background-image: url('https://anushqakandan.github.io/All-images/Javascript/back2.jpg ');
-    /* Specify background size and repeat behavior */
-    background-size: cover; /* Cover the entire viewport */
+background-image: url('https://anushqakandan.github.io/All-images/Javascript/back2.jpg');
+    background-size: cover; 
     background-repeat: no-repeat; 
     height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
+@media only screen and (max-width: 767px) {
+    .backdrop {
+        background-position: center; /* Adjust to display a different part for mobile view */
+    }
+}
 
 
 
 main{
     margin-top: 5rem;
 }
-
-/*Create three rows*/
+/* display -> grid */
 :is(body) {
-    grid-template-rows: auto minmax(100%, 100dvh) auto;
+    display: grid;
 }
+/*Create three rows*/
+/* :is(body) {
+    grid-template-rows: auto minmax(100%, 100dvh) 30rem;
+} */
 
 /* About */
 .background-image { 
     background-image: url('https://anushqakandan.github.io/All-images/Javascript/About2.jpg');
         background-size: cover; 
         background-repeat: no-repeat; 
-        height: 100vh;
-     
-    
+    }
+    @media only screen and (max-width: 767px) {
+        .background-image {
+            background-position: center; /* Adjust to display a different part for mobile view */
+        }
     }
 
 .cardAbout{
@@ -149,7 +156,6 @@ main{
 
 
 /* Footer */
-
 .bottom {
     text-align: center;
 }
@@ -163,6 +169,7 @@ main{
     .cardAbout {
         width: 90%;
     }
+
 }
 
 /* Contact Info */
@@ -170,12 +177,12 @@ main{
     background-image: url('https://anushqakandan.github.io/All-images/Javascript/Contact1.jpg');
     background-size: cover; 
     background-repeat: no-repeat; 
-    height: 130vh;
+    /* height: 120vh; */
  
 }
 
 .card-Contact{
-    backdrop-filter: blur(1px);
+   backdrop-filter: blur(1px);
    text-align: center;
 }
 
@@ -199,7 +206,8 @@ main{
 @media only screen and (max-width: 767px) {
     .mb-3 {
         width: 100%;
-        margin-left: 0; 
+        margin-left: 0;
+        margin-right: 0;
     }
 }
 
@@ -212,4 +220,10 @@ main{
 
 #contactinfo{
     margin-bottom: 1rem;
+}
+
+@media only screen and (max-width: 767px) {
+    .background-image1 {
+        background-position: center; /* Adjust to display a different part for mobile view */
+    }
 }
