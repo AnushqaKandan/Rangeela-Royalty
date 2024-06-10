@@ -19,6 +19,7 @@
     --circle: rgb(210, 147, 29);
     --awesome: rgb(232, 37, 37);
     --pretty:  rgb(125, 17, 30);
+    --square: rgb(234, 182, 109);
 }
 
 @property --top-left {
@@ -117,10 +118,7 @@ main{
 :is(body) {
     display: grid;
 }
-/*Create three rows*/
-/* :is(body) {
-    grid-template-rows: auto minmax(100%, 100dvh) 30rem;
-} */
+
 
 /* About */
 .background-image { 
@@ -158,6 +156,11 @@ main{
     text-shadow: 0 0 10px white
 
 }
+
+/* Product background */
+.product-background{ 
+   background-color: var(--square);
+    }
 
 /* Card  for products*/
 .card{
@@ -250,6 +253,11 @@ main{
 
 @media only screen and (max-width: 767px) {
     .background-image1 {
-        background-position: center; /* Adjust to display a different part for mobile view */
+        background-position: center;
     }
+}
+
+:is(.fa-brands){
+    font-size: 2rem;
+    padding-right: 1rem;
 }
