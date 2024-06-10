@@ -43,6 +43,7 @@
     initial-value:0%;
 }
 
+
 /*Navbar & footer*/
 :is(.navbar, footer){
     background-color: var(--tertiary);
@@ -181,7 +182,13 @@ main{
     object-position: bottom;
 }
 
-/* Add to Cart */
+/* Product Responsiveness */  
+  @media (max-width: 768px) {
+    .card {
+      width: calc(100% - 1rem); /* Full width minus margin */
+    }
+  }
+
 
 
 /* Footer */
