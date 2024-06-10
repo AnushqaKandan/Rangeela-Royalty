@@ -47,7 +47,12 @@
     background-color: var(--tertiary);
 }
 
-
+/* object-fit and objecy-position */
+img{
+    aspect-ratio: 1;
+    object-fit: cover;
+    object-position: center;
+}
 /* Navbar */
 :is(.nav-link) {
     color: var(--secondary); 
@@ -153,6 +158,27 @@ main{
     text-shadow: 0 0 10px white
 
 }
+
+/* Card  for products*/
+.card{
+    width: 20rem;    
+}
+
+.card-text1{
+    color: black;
+    font-size: 1rem;
+}
+.card-text2{
+    font-weight: bold;
+}
+
+/* Product Image */
+:is(#cardImg5, #cardImg6, #cardImg8){
+    object-fit: cover;
+    object-position: bottom;
+}
+
+/* Add to Cart */
 
 
 /* Footer */
