@@ -53,12 +53,7 @@
         </div>
     </nav>
     <main class="background-image container-fluid" >
-        <nav class="container">
-            <ul>
-                <li>
-                    <a href="/index.html"></a>
-                </li>
-            </ul>
+    
         </nav>
 
         <div class="row">
@@ -87,11 +82,14 @@
     <footer class="container-fluid">
         <div class="row">
             <p class="bottom text-white">
-                <span class="shadow"> Copyright</span>
-                <span>&copy; 2024</span>
+                Copyright &copy;<span currentYear></span>
             </p>
         </div>
     </footer>
+
+    <script>
+      document.querySelector('[currentYear]').textContent = new Date().getUTCFullYear()
+    </script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
