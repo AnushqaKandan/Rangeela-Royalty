@@ -60,7 +60,7 @@ let products = JSON.parse(localStorage.getItem("products"))
         {
           id: 5,
           productName: "Pink Beaded Tikka",
-          category: " Maang Tikkas",
+          category: "Maang Tikka",
           description:
             "This exquisite tikka features intricate gold detailing, white stones, and pink bead accents, perfect for traditional occasions.",
           price: 1000.0,
@@ -82,7 +82,7 @@ let products = JSON.parse(localStorage.getItem("products"))
         {
           id: 7,
           productName: "Pearly White Tikka",
-          category: " Maang Tikka",
+          category: "Maang Tikka",
           description:
             "Traditional Tikka dating back to the Mughal Empire, serves as the epitome of elegence and history.",
           price: 1500.0,
@@ -93,7 +93,7 @@ let products = JSON.parse(localStorage.getItem("products"))
         {
           id: 8,
           productName: "Radiant Pearl Tikka",
-          category: " Maang Tikka",
+          category: "Maang Tikka",
           description:
             "A stunning gold maang tikka adorned with intricate detailing and a lustrous pearl drop, perfect for adding regal elegance to any traditional ensemble.",
           price: 1800.0,
@@ -117,7 +117,7 @@ let products = JSON.parse(localStorage.getItem("products"))
           productName: "Maharani Lilac Bangles",
           category: "Bangles",
           description:
-            "Exquisite lilac bangles adorned with gold detailing and delicate hanging ornaments, perfect for adding a touch of elegance to any wedding ensemb",
+            "Exquisite lilac bangles adorned with gold detailing and delicate hanging ornaments, perfect for adding a touch of elegance to any wedding ensemble",
           price: 1300.0,
           img_url:
             "https://anushqakandan.github.io/All-images/Javascript/Bangles2.webp",
@@ -189,27 +189,35 @@ let products = JSON.parse(localStorage.getItem("products"))
       ])
     );
 
-function displayProducts(products) {
-  container.innerHTML = "";
-  products.forEach((product) => {
-    container.innerHTML += `
-        <div class="card">
-            <img src="${product.img_url}" class="card-img-top" alt="${
-      product.productName
-    }" id="cardImg${product.id}">
-            <div class="card-body">
+    function displayProducts(products) {
+        container.innerHTML = "";
+        let currentCategory = null;
+      
+        products.forEach((product) => {
+          // Check if current category is different from the previous product's category
+          if (product.category !== currentCategory) {
+            // Add category heading before the first product of the category
+            container.innerHTML += `
+              <h2 class="category-heading">${product.category}</h2>
+            `;
+            currentCategory = product.category;
+          }
+      
+          // Add product card
+          container.innerHTML += `
+            <div class="card">
+              <img src="${product.img_url}" class="card-img-top" alt="${product.productName}" id="cardImg${product.id}">
+              <div class="card-body">
                 <h5 class="card-title">${product.productName}</h5>
                 <p class="card-text1">${product.description}</p>
-                <p class="card-text2">Amount: R ${product.price}</p> 
-                </p> <button type='button' class="btn btn-success" onclick='addToCart(${JSON.stringify(
-                  product
-                )})'>Add to cart</button>      
+                <p class="card-text2">Amount: R ${product.price}</p>
+                <button type='button' class="btn btn-success" onclick='addToCart(${JSON.stringify(product)})'>Add to cart</button>      
+              </div>
             </div>
-        </div>
-        `;
-  });
-}
-displayProducts(products);
+          `;
+        });
+      }
+      displayProducts(products);
 
 // Search functionality
 searchProduct.addEventListener("keyup", () => {
