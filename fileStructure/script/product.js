@@ -222,18 +222,19 @@ let products = JSON.parse(localStorage.getItem("products"))
 // Search functionality
 searchProduct.addEventListener("keyup", () => {
     try {
-      const searchText = searchProduct.value.toLowerCase();
-      let filteredProducts = products.filter((product) =>
-        product.productName.toLowerCase().includes(searchText)
-      );
-      displayProducts(filteredProducts);
-      if (filteredProducts.length === 0) {
-        throw new Error(`${searchText} product not found`);
-      }
+        const searchText = searchProduct.value.toLowerCase();
+        let filteredProducts = products.filter((product) =>
+            product.productName.toLowerCase().includes(searchText) ||
+            product.category.toLowerCase().includes(searchText)
+        );
+        displayProducts(filteredProducts);
+        if (filteredProducts.length === 0) {
+            throw new Error(`${searchText} product not found`);
+        }
     } catch (error) {
-      container.innerHTML = `<div class="alert alert-warning">${error.message}</div>`;
+        container.innerHTML = `<div class="alert alert-warning">${error.message}</div>`;
     }
-  });
+});
   
   // Sorting functionality
   let ascendingOrder = true; // Default sort order
