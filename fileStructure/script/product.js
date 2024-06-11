@@ -205,18 +205,20 @@ let products = JSON.parse(localStorage.getItem("products"))
       
           // Add product card
           container.innerHTML += `
-            <div class="card">
-              <img src="${product.img_url}" class="card-img-top" alt="${product.productName}" id="cardImg${product.id}">
-              <div class="card-body">
-                <h5 class="card-title">${product.productName}</h5>
-                <p class="card-text1">${product.description}</p>
-                <p class="card-text2">Amount: R ${product.price}</p>
-                <button type='button' class="btn btn-success" onclick='addToCart(${JSON.stringify(product)})'>Add to cart</button>      
+          <div class="col">
+              <div class="card">
+                  <img src="${product.img_url}" class="card-img-top" alt="${product.productName}" id="cardImg${product.id}">
+                  <div class="card-body">
+                      <h5 class="card-title">${product.productName}</h5>
+                      <p class="card-text1">${product.description}</p>
+                      <p class="card-text2">Amount: R ${product.price}</p>
+                      <button type='button' class="btn btn-success" onclick='addToCart(${JSON.stringify(product)})'>Add to cart</button>
+                  </div>
               </div>
-            </div>
-          `;
-        });
-      }
+          </div>
+      `;
+  });
+}
       displayProducts(products);
 
 // Search functionality

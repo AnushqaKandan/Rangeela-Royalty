@@ -158,6 +158,15 @@ main{
 
 }
 
+/* display for other headings */
+.display-3{
+    color: var(--awesome) ;
+    text-align: center;
+    margin-top: 2rem;
+    font-weight: bold;
+    text-shadow: 0 0 10px white
+}
+
 /* Product background */
 .product-background{ 
    background-color: var(--square);
@@ -177,6 +186,12 @@ main{
 }
 
 /* Product Image */
+.product-image{
+   padding: 0;
+    margin: 0;
+    
+}
+
 :is(#cardImg5, #cardImg6, #cardImg8){
     object-fit: cover;
     object-position: bottom;
