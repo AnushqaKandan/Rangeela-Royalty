@@ -30,10 +30,7 @@ function displayCheckoutItems() {
         <td colspan="7">Total: R ${total.toFixed(2)}</td>
     `;
     checkoutTableBody.appendChild(totalRow);
-
-    document.getElementById("totalAmount").textContent = `Total: R${total.toFixed(2)}`;
-
-    
+   
 }
 
 function addItemToCart(product) {
