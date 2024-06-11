@@ -189,80 +189,90 @@ let products = JSON.parse(localStorage.getItem("products"))
       ])
     );
 
-    function displayProducts(products) {
-        container.innerHTML = "";
-        let currentCategory = null;
-      
-        products.forEach((product) => {
-          // Check if current category is different from the previous product's category
-          if (product.category !== currentCategory) {
-            // Add category heading before the first product of the category
-            container.innerHTML += `
+function displayProducts(products) {
+  container.innerHTML = "";
+  let currentCategory = null;
+
+  products.forEach((product) => {
+    // Check if current category is different from the previous product's category
+    if (product.category !== currentCategory) {
+      // Add category heading before the first product of the category
+      container.innerHTML += `
               <h2 class="category-heading">${product.category}</h2>
             `;
-            currentCategory = product.category;
-          }
-      
-          // Add product card
-          container.innerHTML += `
-          <div class="col">
-              <div class="card">
-                  <img src="${product.img_url}" class="card-img-top" alt="${product.productName}" id="cardImg${product.id}">
-                  <div class="card-body">
-                      <h5 class="card-title">${product.productName}</h5>
-                      <p class="card-text1">${product.description}</p>
-                      <p class="card-text2">Amount: R ${product.price}</p>
-                      <button type='button' class="btn btn-success" onclick='addToCart(${JSON.stringify(product)})'>Add to cart</button>
-                  </div>
+      currentCategory = product.category;
+    }
+
+    // Add product card
+    container.innerHTML += `
+        <div class="col">
+          <div class="card">
+              <img src="${product.img_url}" class="card-img-top" alt="${product.productName}" id="cardImg${product.id}">
+              <div class="card-body d-flex flex-column justify-content-between">
+                  <div class="card-text-bottom">
+                    <h5 class="card-title">${product.productName}</h5>
+                    <p class="card-text1">${product.description}</p>
+                   </div>
+              </div>
+              <div>
+                <p class="card-text2">Amount: R ${product.price}</p>
+                <button type='button' class="btn btn-success align-self-end" id="btn${product.id}" onclick='addToCart(${JSON.stringify(product)})'>Add to cart</button>
               </div>
           </div>
+        </div>
       `;
   });
 }
-      displayProducts(products);
+displayProducts(products);
 
 // Search functionality
 searchProduct.addEventListener("keyup", () => {
-    try {
-        const searchText = searchProduct.value.toLowerCase();
-        let filteredProducts = products.filter((product) =>
-            product.productName.toLowerCase().includes(searchText) ||
-            product.category.toLowerCase().includes(searchText)
-        );
-        displayProducts(filteredProducts);
-        if (filteredProducts.length === 0) {
-            throw new Error(`${searchText} product not found`);
-        }
-    } catch (error) {
-        container.innerHTML = `<div class="alert alert-warning">${error.message}</div>`;
+  try {
+    const searchText = searchProduct.value.toLowerCase();
+    if (searchText.length < 1) displayProducts(products);
+    let filteredProducts = products.filter(
+      (product) =>
+        product.productName.toLowerCase().includes(searchText) ||
+        product.category.toLowerCase().includes(searchText)
+    );
+    displayProducts(filteredProducts);
+    if (filteredProducts.length === 0) {
+      throw new Error(`${searchText} product not found`);
     }
-});
-  
-  // Sorting functionality
-  let ascendingOrder = true; // Default sort order
-  
-  sortingByAmount.addEventListener("click", () => {
-    try {
-      products.sort((a, b) => (ascendingOrder ? a.price - b.price : b.price - a.price));
-      displayProducts(products);
-      ascendingOrder = !ascendingOrder; // Toggle sort order
-      sortingByAmount.textContent = ascendingOrder ? "Sorted by lowest amount" : "Sorted by highest amount";
-    } catch (error) {
-      container.innerHTML = `<div class="alert alert-danger">Sorting failed. Please try again.</div>`;
-    }
-  });
-  
-  // Add to cart functionality
-  function addToCart(product) {
-    try {
-      checkoutItems.push(product);
-      localStorage.setItem("checkout", JSON.stringify(checkoutItems));
-      document.querySelector("[counter]").textContent = checkoutItems.length || 0;
-      alert("Product added to cart successfully!");
-    } catch (error) {
-      alert("Unable to add product to cart. Please try again.");
-    }
+  } catch (error) {
+    container.innerHTML = `<div class="alert alert-warning">${error.message}</div>`;
   }
+});
+
+// Sorting functionality
+let ascendingOrder = true; // Default sort order
+
+sortingByAmount.addEventListener("click", () => {
+  try {
+    products.sort((a, b) =>
+      ascendingOrder ? a.price - b.price : b.price - a.price
+    );
+    displayProducts(products);
+    ascendingOrder = !ascendingOrder; // Toggle sort order
+    sortingByAmount.textContent = ascendingOrder
+      ? "Sorted by lowest amount"
+      : "Sorted by highest amount";
+  } catch (error) {
+    container.innerHTML = `<div class="alert alert-danger">Sorting failed. Please try again.</div>`;
+  }
+});
+
+// Add to cart functionality
+function addToCart(product) {
+  try {
+    checkoutItems.push(product);
+    localStorage.setItem("checkout", JSON.stringify(checkoutItems));
+    document.querySelector("[counter]").textContent = checkoutItems.length || 0;
+    alert("Product added to cart successfully!");
+  } catch (error) {
+    alert("Unable to add product to cart. Please try again.");
+  }
+}
 
 window.onload = () => {
   document.querySelector("[counter]").textContent = checkoutItems.length || 0;
