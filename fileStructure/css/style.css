@@ -340,14 +340,18 @@ th {
     padding: 5px 10px;
     cursor: pointer;
 }
+/* Quantity input field */
+input[type="number"] {
+    width: 100%; /* Full width */
+    text-align: center; /* Center align text */
+}
 
 /* Responsiveness for Checkout */
-/* @media (max-width: 768px) {
+@media (max-width: 768px) {
     table, thead, tbody, th, td, tr {
         display: block;
-         
     }
-    table{
+    table {
         margin-bottom: 5rem;
     }
     thead tr {
@@ -357,7 +361,6 @@ th {
         margin-bottom: 15px;
     }
     td {
-        
         position: relative;
         padding-left: 50%;
     }
@@ -374,9 +377,9 @@ th {
     td:nth-of-type(2):before { content: "Category"; }
     td:nth-of-type(3):before { content: "Image"; }
     td:nth-of-type(4):before { content: "Description"; }
-    td:nth-of-type(5):before { content: "Price"; }
-    td:nth-of-type(6):before { content: "Action"; }
+    td:nth-of-type(5):before { content: "Quantity"; } /* Change to Quantity */
+    td:nth-of-type(6):before { content: "Price"; }
+    td:nth-of-type(7):before { content: "Action"; }
 
-    .total-row td:nth-of-type(1):before { content: ""; }
+    .total-row td:before { content: ""; } 
 }
- */
