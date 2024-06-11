@@ -263,17 +263,27 @@ sortingByAmount.addEventListener("click", () => {
 });
 
 // Add to cart functionality
+// Add to cart functionality
 function addToCart(product) {
-  try {
-    checkoutItems.push(product);
-    localStorage.setItem("checkout", JSON.stringify(checkoutItems));
-    document.querySelector("[counter]").textContent = checkoutItems.length || 0;
-    alert("Product added to cart successfully!");
-  } catch (error) {
-    alert("Unable to add product to cart. Please try again.");
-  }
+    try {
+        const existingItem = checkoutItems.find(item => item.id === product.id);
+        if (existingItem) {
+            // Product already exists in cart, update quantity
+            existingItem.quantity += 1;
+        } else {
+            // Product doesn't exist in cart, add it
+            checkoutItems.push({ ...product, quantity: 1 });
+        }
+        localStorage.setItem("checkout", JSON.stringify(checkoutItems));
+        
+        // Calculate the total quantity of items in the cart, including duplicates
+        const totalQuantity = checkoutItems.reduce((total, item) => total + item.quantity, 0);
+        
+        // Update the counter badge
+        document.querySelector("[counter]").textContent = totalQuantity || 0;
+    } catch (error) {
+        alert("Unable to add product to cart. Please try again.");
+    }
 }
 
-window.onload = () => {
-  document.querySelector("[counter]").textContent = checkoutItems.length || 0;
-};
+  
