@@ -75,7 +75,7 @@
                 aria-current="page"
                 href="/fileStructure/html/checkout.html"
                 >Checkout
-                <span class="badge bg-primary rounded-pill" counter>0</span>
+                <span class="badge bg-warning rounded-pill" counter>0</span>
               </a>
             </li>
             <li class="nav-item">
@@ -105,18 +105,27 @@
       <div class="row justify-content-between my-2 d-block d-md-flex p-2">
         <div class="col">
           <input
-            class="form-control"
+            class="form-control Search-bar"
             type="text"
             placeholder="Search product by name"
             searchProduct
           />
         </div>
         <div class="col">
-          <button class="btn btn-success" type="button" sorting>Sorting</button>
+          <button class="btn btn-secondary sort" type="button" sorting>Sorting</button>
         </div>
+        <div class="col">
+          <select class="form-select Cat-filter" categoryFilter>
+              <option value="">All Categories</option>
+              <option value="Jhumkas">Jhumkas</option>
+              <option value="Maang Tikka">Maang Tikka</option>
+              <option value="Bangles">Bangles</option>
+              <option value="Sets">Sets</option>
+          </select>
+      </div>
+
       </div>
       <div class="row gap-2 justify-content-between mx-2" ourStore></div>
-      
     </main>
     <footer class="container-fluid">
       <div class="row">
