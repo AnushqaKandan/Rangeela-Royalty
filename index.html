@@ -48,7 +48,9 @@
                         <a class="nav-link" aria-current="page" href="/fileStructure/html/product.html">Products</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="/fileStructure/html/checkout.html">Checkout</a>
+                        <a class="nav-link" aria-current="page" href="/fileStructure/html/checkout.html">Checkout
+                            <span class="badge bg-warning rounded-pill" counter>0</span>
+                        </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" aria-current="page" href="/fileStructure/html/admin.html">Admin</a>
@@ -80,6 +82,12 @@
 
     <script>
       document.querySelector('[currentYear]').textContent = new Date().getUTCFullYear()
+      // Counter
+    window.onload = () => {
+        document.querySelector('[counter]').textContent = JSON.parse(localStorage.getItem('checkout'))
+            ? JSON.parse(localStorage.getItem('checkout')).length
+            : 0
+    }
     </script>
 
 
