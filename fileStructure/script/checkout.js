@@ -70,3 +70,8 @@ function payNow() {
     updateCheckoutTable();
 }
 
+function clearCart(){
+    checkoutItems = [];
+    localStorage.setItem('checkout', JSON.stringify(checkoutItems));
+    displayCheckoutItems();
+}

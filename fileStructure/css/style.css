@@ -424,4 +424,19 @@ input[type="number"] {
     }
 }
 
+/* Admin Page */
+  .modal-dialog {
+    max-width: 600px; 
+   
+  }
+  
+  .edit-btn{
+    color: white;
+    background-color: black;
+  }
+  
+  
+
+
+
 
