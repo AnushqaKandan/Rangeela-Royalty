@@ -191,17 +191,7 @@ let products = JSON.parse(localStorage.getItem("products"))
 
 function displayProducts(products) {
   container.innerHTML = "";
-  let currentCategory = null;
-
   products.forEach((product) => {
-    // Check if current category is different from the previous product's category
-    if (product.category !== currentCategory) {
-      // Add category heading before the first product of the category
-      container.innerHTML += `
-              <h2 class="category-heading">${product.category}</h2>
-            `;
-      currentCategory = product.category;
-    }
 
     // Add product card
     container.innerHTML += `
@@ -216,8 +206,8 @@ function displayProducts(products) {
               </div>
               <div>
                 <p class="card-text2">Amount: R ${product.price}</p>
-                <button type='button' class="btn btn-success align-self-end" id="btn${product.id}" onclick='addToCart(${JSON.stringify(product)})'>Add to cart</button>
-              </div>
+                <button type='button' class="btn btn-secondary align-self-end" id="btn${product.id}" onclick='addToCart(${JSON.stringify(product)})'>Add to cart</button>
+              </div
           </div>
         </div>
       `;
@@ -262,7 +252,7 @@ sortingByAmount.addEventListener("click", () => {
   }
 });
 
-// Add to cart functionality
+
 // Add to cart functionality
 function addToCart(product) {
     try {
@@ -285,5 +275,13 @@ function addToCart(product) {
         alert("Unable to add product to cart. Please try again.");
     }
 }
-
+document
+  .querySelector("[categoryFilter]")
+  .addEventListener("change", (event) => {
+    const selectedCategory = event.target.value;
+    const filteredProducts = selectedCategory
+      ? products.filter((product) => product.category === selectedCategory)
+      : products;
+    displayProducts(filteredProducts);
+  });
   
