@@ -75,7 +75,7 @@
                 href="/fileStructure/html/checkout.html"
                 >Checkout
                 <span class="badge bg-warning rounded-pill" counter>0</span>
-                </a>
+              </a>
             </li>
             <li class="nav-item">
               <a
@@ -98,95 +98,146 @@
       </div>
     </nav>
     <main class="container-fluid">
-        <h2 class="display-3">Admin</h2>
-        <div class="row justify-content-between my-2 d-block d-md-flex p-2">
-          <div class="col">
-              <input class="form-control Search-bar" type="text" placeholder="Search product by name" searchProduct />
-          </div>
-          <div class="col">
-            <button class="btn btn-secondary sort" type="button" sorting>Sorting</button>
-          </div>
-          <div class="col">
-              <button id="addNewProductBtn" class="btn btn-secondary">Add New Product</button>
-          </div>
-      </div>  
-        
-        <table id="productTable">
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Product Name</th>
-                    <th>Category</th>
-                    <th>Description</th>
-                    <th>Price</th>
-                    <th>Image</th>
-                    <th>Edit Item</th>
-                    <th>Remove Item</th>
-                </tr>
-            </thead>
-            <tbody id="productTableBody">
-                <!-- Product rows will be dynamically added here -->
-            </tbody>
-        </table>
+      <h2 class="display-3">Admin</h2>
+      <div class="row justify-content-between my-2 d-block d-md-flex p-2">
+        <div class="col">
+          <input
+            class="form-control Search-bar"
+            type="text"
+            placeholder="Search product by name"
+            searchProduct
+          />
+        </div>
+        <div class="col">
+          <button class="btn btn-secondary sort" type="button" sorting id="but">
+            Sorting
+          </button>
+        </div>
+        <div class="col">
+          <button id="addNewProductBtn" class="btn btn-secondary" >
+            Add New Product
+          </button>
+        </div>
+      </div>
+
+      <table id="productTable">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Product Name</th>
+            <th>Category</th>
+            <th>Description</th>
+            <th>Price</th>
+            <th>Image</th>
+            <th>Edit Item</th>
+            <th>Remove Item</th>
+          </tr>
+        </thead>
+        <tbody id="productTableBody">
+          <!-- Product rows will be dynamically added here -->
+        </tbody>
+      </table>
     </main>
 
-    <div class="modal fade" id="addProductModal" tabindex="-1" aria-labelledby="addProductModalLabel" aria-hidden="true">
+    <div
+      class="modal fade"
+      id="addProductModal"
+      tabindex="-1"
+      aria-labelledby="addProductModalLabel"
+      aria-hidden="true"
+    >
       <div class="modal-dialog">
-          <div class="modal-content">
-              <div class="modal-header">
-                  <h5 class="modal-title" id="addProductModalLabel">Add New Product</h5>
-                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-              <div class="modal-body">
-                  <div class="mb-3">
-                      <label for="productName" class="form-label">Product Name</label>
-                      <input type="text" class="form-control" id="productName">
-                  </div>
-                  <div class="mb-3">
-                      <label for="category" class="form-label">Category</label>
-                      <input type="text" class="form-control" id="category">
-                  </div>
-                  <div class="mb-3">
-                      <label for="description" class="form-label">Description</label>
-                      <input type="text" class="form-control" id="description">
-                  </div>
-                  <div class="mb-3">
-                      <label for="price" class="form-label">Price</label>
-                      <input type="number" class="form-control" id="price">
-                  </div>
-                  <div class="mb-3">
-                      <label for="imageUrl" class="form-label">Image URL</label>
-                      <input type="text" class="form-control" id="imageUrl">
-                  </div>
-              </div>
-              <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                  <button type="button" class="btn btn-primary" id="saveProductChangesBtn">Save Changes</button>
-              </div>
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="addProductModalLabel">
+              Add New Product
+            </h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
           </div>
+          <div class="modal-body">
+            <div class="mb-4">
+              <label for="productName" class="form-label">Product Name</label>
+              <input type="text" class="form-control" id="productName" />
+            </div>
+            <div class="mb-4">
+              <label for="category" class="form-label">Category</label>
+              <input type="text" class="form-control" id="category" />
+            </div>
+            <div class="mb-4">
+              <label for="description" class="form-label">Description</label>
+              <input type="text" class="form-control" id="description" />
+            </div>
+            <div class="mb-4">
+              <label for="price" class="form-label">Price</label>
+              <input type="number" class="form-control" id="price" />
+            </div>
+            <div class="mb-4">
+              <label for="imageUrl" class="form-label">Image URL</label>
+              <input type="text" class="form-control" id="imageUrl" />
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+            <button
+              type="button"
+              class="btn btn-secondary"
+              id="saveProductChangesBtn"
+            >
+              Save Changes
+            </button>
+          </div>
+        </div>
       </div>
-  </div>
-  
+    </div>
 
     <!-- Bootstrap Modal for Error Messages -->
-<div class="modal fade" id="errorModal" tabindex="-1" aria-labelledby="errorModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
+    <div
+      class="modal fade"
+      id="errorModal"
+      tabindex="-1"
+      aria-labelledby="errorModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
           <div class="modal-header">
-              <h5 class="modal-title" id="errorModalLabel">Warning</h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            <h5 class="modal-title" id="errorModalLabel">Warning</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
           </div>
           <div class="modal-body" id="errorModalBody">
             <p>Are you sure you want to remove this product?</p>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-secondary">Save Changes</button>
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+            <button type="button" class="btn btn-secondary">
+              Save Changes
+            </button>
           </div>
+        </div>
       </div>
-  </div>
-</div>
-
+    </div>
 
     <footer class="container-fluid">
       <div class="row">
@@ -199,12 +250,14 @@
     <script>
       document.querySelector("[currentYear]").textContent =
         new Date().getUTCFullYear();
-        // Counter
-    window.onload = () => {
-        document.querySelector('[counter]').textContent = JSON.parse(localStorage.getItem('checkout'))
-            ? JSON.parse(localStorage.getItem('checkout')).length
-            : 0
-    }
+      // Counter
+      window.onload = () => {
+        document.querySelector("[counter]").textContent = JSON.parse(
+          localStorage.getItem("checkout")
+        )
+          ? JSON.parse(localStorage.getItem("checkout")).length
+          : 0;
+      };
     </script>
 
     <script
