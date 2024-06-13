@@ -80,22 +80,11 @@
         </div>
     </footer>
 
-    <script>
-      document.querySelector('[currentYear]').textContent = new Date().getUTCFullYear()
-      // Counter
-    window.onload = () => {
-        document.querySelector('[counter]').textContent = JSON.parse(localStorage.getItem('checkout'))
-            ? JSON.parse(localStorage.getItem('checkout')).length
-            : 0
-    }
-    </script>
-
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
     </script>
-
-    <script src="./script/code.js"></script>
+    
+  <script src="./fileStructure/script/code.js"></script>
 </body>
 
 </html>

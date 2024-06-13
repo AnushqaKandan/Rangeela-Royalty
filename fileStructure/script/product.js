@@ -1,6 +1,7 @@
 let container = document.querySelector("[ourStore]");
 let searchProduct = document.querySelector("[searchProduct]");
 let sortingByAmount = document.querySelector("[sorting]");
+let spinner = document.getElementById("spinner"); 
 
 // items/products
 let checkoutItems = JSON.parse(localStorage.getItem("checkout"))
@@ -213,6 +214,9 @@ function displayProducts(products) {
       `;
   });
 }
+
+
+
 displayProducts(products);
 
 // Search functionality
@@ -275,6 +279,7 @@ function addToCart(product) {
         alert("Unable to add product to cart. Please try again.");
     }
 }
+
 document
   .querySelector("[categoryFilter]")
   .addEventListener("change", (event) => {
@@ -285,3 +290,13 @@ document
     displayProducts(filteredProducts);
   });
   
+  // Update counter on page load
+window.onload = () => {
+  updateCartCounter();
+};
+
+// Function to update the counter badge
+function updateCartCounter() {
+  const totalQuantity = checkoutItems.reduce((total, item) => total + item.quantity, 0);
+  document.querySelector("[counter]").textContent = totalQuantity || 0;
+}

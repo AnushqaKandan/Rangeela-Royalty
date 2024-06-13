@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 <td>${product.productName}</td>
                 <td>${product.category}</td>
                 <td>${product.description}</td>
-                <td>R ${product.price}</td>
+                <td>R${product.price}</td>
                 <td><img src="${product.img_url}" alt="${product.productName}" style="width: 100px; height: auto;"></td>
                 <td><button class="edit-btn btn btn-success" data-id="${product.id}">Edit</button></td>
                 <td><button class="remove-btn btn btn-danger" data-id="${product.id}">Remove</button></td>
@@ -43,6 +43,16 @@ document.addEventListener("DOMContentLoaded", function() {
         });
 
         return filteredProducts;
+    }
+
+    // Constructor function for products
+    function Product(id, productName, category, description, price, img_url) {
+        this.id = id;
+        this.productName = productName;
+        this.category = category;
+        this.description = description;
+        this.price = price;
+        this.img_url = img_url;
     }
 
     renderProducts(products);
@@ -77,24 +87,10 @@ document.addEventListener("DOMContentLoaded", function() {
         if (this.dataset.id) {
             // Edit existing product
             const index = products.findIndex(product => product.id === id);
-            products[index] = {
-                id: id,
-                productName: productName,
-                category: category,
-                description: description,
-                price: price,
-                img_url: img_url
-            };
+            products[index] = new Product(id, productName, category, description, price, img_url);
         } else {
             // Add new product
-            const newProduct = {
-                id: id,
-                productName: productName,
-                category: category,
-                description: description,
-                price: price,
-                img_url: img_url
-            };
+            const newProduct = new Product(id, productName, category, description, price, img_url);
             products.push(newProduct);
         }
 
@@ -175,3 +171,27 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 });
+
+// Update counter on page load
+window.onload = () => {
+  updateCartCounter();
+};
+
+// Function to update the counter badge
+function updateCartCounter() {
+  const totalQuantity = checkoutItems.reduce((total, item) => total + item.quantity, 0);
+  document.querySelector("[counter]").textContent = totalQuantity || 0;
+}
+
+// Initialize checkoutItems and update counter on page load
+let checkoutItems = JSON.parse(localStorage.getItem("checkout")) || [];
+
+window.onload = () => {
+    updateCartCounter();
+};
+
+// Function to update the counter badge
+function updateCartCounter() {
+    const totalQuantity = checkoutItems.reduce((total, item) => total + item.quantity, 0);
+    document.querySelector("[counter]").textContent = totalQuantity || 0;
+}

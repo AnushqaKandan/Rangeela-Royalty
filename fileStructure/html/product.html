@@ -75,7 +75,7 @@
                 aria-current="page"
                 href="/fileStructure/html/checkout.html"
                 >Checkout
-                <span class="badge bg-warning rounded-pill" counter>0</span>
+                <span class="badge bg-warning rounded-pill"counter>0</span>
               </a>
             </li>
             <li class="nav-item">
@@ -143,12 +143,7 @@
     <script>
       document.querySelector("[currentYear]").textContent =
         new Date().getUTCFullYear();
-        // Counter
-    window.onload = () => {
-        document.querySelector('[counter]').textContent = JSON.parse(localStorage.getItem('checkout'))
-            ? JSON.parse(localStorage.getItem('checkout')).length
-            : 0
-    }
+        
     </script>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
