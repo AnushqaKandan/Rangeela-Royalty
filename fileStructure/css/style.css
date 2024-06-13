@@ -401,12 +401,21 @@ input[type="number"] {
     td:nth-of-type(7):before { content: "Action"; }
 
     .total-row td:before { content: ""; }
+    .total-row td:before { content: ""; }
     
+}
+
+:is(#payNowBrn, #clearBtn){
+    width: 6rem;
 }
 
 @media (max-width: 768px) {
     #payNowBtn {
         position:relative;
+        bottom: 50px;
+    }
+    #clearBtn{
+        position: relative;
         bottom: 50px;
     }
 }
@@ -444,5 +453,18 @@ input[type="number"] {
     }
   }
 
-
+/* Spinner */
+#spinner {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 9999; /* Ensures spinner is on top */
+    display: none; /* Initially hidden */
+  }
+  
+  body.loading #spinner {
+    display: flex; /* Show spinner */
+  }
+  
 

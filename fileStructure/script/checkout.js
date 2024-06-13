@@ -77,3 +77,13 @@ function clearCart(){
     displayCheckoutItems();
 }
 
+// Update counter on page load
+window.onload = () => {
+    updateCartCounter();
+  };
+  
+  // Function to update the counter badge
+  function updateCartCounter() {
+    const totalQuantity = checkoutItems.reduce((total, item) => total + item.quantity, 0);
+    document.querySelector("[counter]").textContent = totalQuantity || 0;
+  }
