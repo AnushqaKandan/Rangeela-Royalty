@@ -9,6 +9,7 @@ function displayCheckoutItems() {
 
     checkoutItems.forEach((item, index) => {
         const row = document.createElement("tr");
+        const itemTotalPrice = item.price * (item.quantity || 1); // Multiply price by quantity
         row.innerHTML = `
             <td>${item.productName}</td>
             <td>${item.category}</td>
@@ -17,11 +18,11 @@ function displayCheckoutItems() {
             <td>
                 <input type="number" min="1" value="${item.quantity || 1}" onchange="updateQuantity(${index}, this.value)">
             </td> 
-            <td>R${item.price.toFixed(2)}</td>
-            <td><button class="remove-btn" onclick="removeItem(${index})">Remove</button></td>
+            <td>R${itemTotalPrice.toFixed(2)}</td>
+            <td><button class="btn remove-btn btn-danger" onclick="removeItem(${index})">Remove</button></td>
         `;
         checkoutTableBody.appendChild(row);
-        total += item.price * (item.quantity || 1); // Multiply price by quantity
+        total += itemTotalPrice; // Add total price of items
     });
 
     const totalRow = document.createElement("tr");
@@ -75,3 +76,4 @@ function clearCart(){
     localStorage.setItem('checkout', JSON.stringify(checkoutItems));
     displayCheckoutItems();
 }
+

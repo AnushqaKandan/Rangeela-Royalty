@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 <td>${product.description}</td>
                 <td>R ${product.price}</td>
                 <td><img src="${product.img_url}" alt="${product.productName}" style="width: 100px; height: auto;"></td>
-                <td><button class="edit-btn btn btn-warning" data-id="${product.id}">Edit</button></td>
+                <td><button class="edit-btn btn btn-success" data-id="${product.id}">Edit</button></td>
                 <td><button class="remove-btn btn btn-danger" data-id="${product.id}">Remove</button></td>
             `;
             productTableBody.appendChild(row);

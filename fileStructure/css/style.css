@@ -46,6 +46,7 @@
 
 /* Button color for all */
 .btn{
+    color: white;
     background-color: brown;
 
     &:hover{
@@ -187,7 +188,7 @@ main{
     width: 20rem;
     height: 100%;
     display: flex;
-    flex-direction: column; 
+    flex-direction: column;
     border: 1px solid black; 
     display: flex;
     margin: auto;
@@ -195,10 +196,6 @@ main{
 }
 .sort{
     width: 10rem;
-}
-
-.card-body {
-    flex: 1; /* Allow the card body to grow and fill the remaining space */
 }
 
 .card-title {
@@ -226,6 +223,7 @@ main{
 
 /*Product Image */
  .card-img-top {  
+    width: 100%;
     object-fit: cover; 
     object-position: center;
     border-bottom: 1px solid black;       
@@ -236,28 +234,20 @@ main{
     object-position: bottom;
 }
 
-/* Product Responsiveness */  
-/* Add a flex container to the product rows */
-.product-row {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  gap: 1rem;
-}
-
-/* Set the width of the cards */
-@media (max-width: 768px) {
-  .product-row .col {
-    flex: 1 1 calc(33.33% - 1rem); /* Three cards per row on medium and larger screens */
-  }
-}
 
 @media (max-width: 768px) {
     .sort{
         margin-block: 0.8rem;
-
+        width: 100%; 
     }
-    
+    .row >*{
+        padding: 0;
+        width:  90%;
+        margin-inline: auto;
+    }
+    .card{
+        width: 17rem;
+    }
   }
 
 /* Footer */
@@ -302,7 +292,7 @@ main{
 
 .mb-3{
     width: 30rem;
-    margin-left: 25rem;
+    margin:auto;
 }
 .message{
     height: 17rem;
@@ -364,9 +354,6 @@ th {
 }
 
 .remove-btn {
-    background-color: #ff4c4c;
-    color: white;
-    border: none;
     padding: 5px 10px;
     cursor: pointer;
 }
@@ -429,14 +416,33 @@ input[type="number"] {
     max-width: 600px; 
    
   }
-  
+
+  /*price column in admin */
   .edit-btn{
     color: white;
-    background-color: black;
+    background-color: green;
+    width: 5rem;
+  }
+
+  .remove-btn{
+    color: white;
+    background-color: rgb(140, 13, 13);
+    width: 5rem;
   }
   
+
   
 
+/* Admin button */
+  @media (max-width: 768px) {
+
+    #but{
+        width: 100%;
+    }
+    #addNewProductBtn{
+        width:100%;
+    }
+  }
 
 
 
