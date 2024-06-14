@@ -213,7 +213,10 @@ function displayProducts(products) {
         </div>
       `;
   });
+
+
 }
+
 
 
 
