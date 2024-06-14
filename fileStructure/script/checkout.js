@@ -81,6 +81,8 @@ function clearCart(){
 window.onload = () => {
     updateCartCounter();
   };
+
+
   
   // Function to update the counter badge
   function updateCartCounter() {
