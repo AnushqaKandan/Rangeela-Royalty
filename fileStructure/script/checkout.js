@@ -89,3 +89,10 @@ window.onload = () => {
     const totalQuantity = checkoutItems.reduce((total, item) => total + item.quantity, 0);
     document.querySelector("[counter]").textContent = totalQuantity || 0;
   }
+
+//   Spinner
+  let spinnerWrapper = document.querySelector(".spinner-wrapper");
+
+setTimeout(() => {
+  spinnerWrapper.style.opacity = 0;
+}, 200);
