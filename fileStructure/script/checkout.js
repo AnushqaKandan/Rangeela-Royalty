@@ -48,28 +48,34 @@ function addItemToCart(product) {
 }
 
 function removeItem(index) {
-    checkoutItems.splice(index, 1);
-    localStorage.setItem("checkout", JSON.stringify(checkoutItems));
-    displayCheckoutItems();
+    const removedQuantity = checkoutItems[index].quantity; // Get the quantity of the item being removed
+    checkoutItems.splice(index, 1); // Remove the item from checkoutItems array
+    localStorage.setItem("checkout", JSON.stringify(checkoutItems)); // Update localStorage
+    displayCheckoutItems(); // Re-render the checkout items table
+    updateCartCounter(-removedQuantity); // Update the cart counter by subtracting the removed quantity
 }
 
 function updateQuantity(index, quantity) {
     checkoutItems[index].quantity = parseInt(quantity); // Update quantity in checkoutItems array
     localStorage.setItem("checkout", JSON.stringify(checkoutItems));
-    displayCheckoutItems();
+    displayCheckoutItems(); // Re-render the checkout items table
+    updateCartCounter(); // Update the cart counter badge
 }
+
 
 displayCheckoutItems();
 
 //  Function to handle payment
 function payNow() {
+   if (checkoutItems.length === 0) {
+        alert("Your cart is empty. Please add items to proceed.");
+        return;
+    }
     // Implement payment logic here
-    alert("Thank you for your Order!");
-    // Optionally, you can clear the checkout items after successful payment
-    checkoutItems = [];
-    localStorage.setItem('checkout', JSON.stringify(checkoutItems));
-    updateCheckoutTable();
+   else{ alert("Thank you for your Order!");}
+
 }
+
 
 function clearCart(){
     checkoutItems = [];
@@ -81,7 +87,6 @@ function clearCart(){
 window.onload = () => {
     updateCartCounter();
   };
-
 
   
   // Function to update the counter badge
