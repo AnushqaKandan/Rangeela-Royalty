@@ -1,7 +1,6 @@
 let container = document.querySelector("[ourStore]");
 let searchProduct = document.querySelector("[searchProduct]");
 let sortingByAmount = document.querySelector("[sorting]");
-let spinner = document.getElementById("spinner"); 
 
 // items/products
 let checkoutItems = JSON.parse(localStorage.getItem("checkout"))
@@ -303,3 +302,10 @@ function updateCartCounter() {
   const totalQuantity = checkoutItems.reduce((total, item) => total + item.quantity, 0);
   document.querySelector("[counter]").textContent = totalQuantity || 0;
 }
+
+
+let spinnerWrapper = document.querySelector(".spinner-wrapper");
+
+setTimeout(() => {
+  spinnerWrapper.style.opacity = 0;
+}, 200);

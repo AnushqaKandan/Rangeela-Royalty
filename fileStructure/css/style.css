@@ -396,7 +396,7 @@ input[type="number"] {
     td:nth-of-type(2):before { content: "Category"; }
     td:nth-of-type(3):before { content: "Image"; }
     td:nth-of-type(4):before { content: "Description"; }
-    td:nth-of-type(5):before { content: "Quantity"; } /* Change to Quantity */
+    td:nth-of-type(5):before { content: "Quantity"; } 
     td:nth-of-type(6):before { content: "Price"; }
     td:nth-of-type(7):before { content: "Action"; }
 
@@ -453,20 +453,8 @@ input[type="number"] {
     }
   }
 
-/* Spinner */
-#spinner {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 9999; /* Ensures spinner is on top */
-    display: none; /* Initially hidden */
-  }
-  
-  body.loading #spinner {
-    display: flex; /* Show spinner */
-  }
-  
+
+    
 
 /* Admin Table */
 
